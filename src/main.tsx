@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import App from '~/App';
+import { App } from '~/App';
 import { GlobalStyles } from '~/styles/global';
-
-import './index.css';
 
 const rootElement = document.querySelector('[data-js="root"]');
 
