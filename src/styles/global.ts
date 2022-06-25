@@ -8,18 +8,18 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   :root {
-    --gray-50: '#F7FAFC';
-    --red-100: '#FED7D7';
-    --orange-200: '#FBD38D';
-    --yellow-300: '#F6E05E';
-    --green-400: '#48BB78';
-    --teal-500: '#319795';
-    --blue-600: '#2B6CB0';
-    --cyan-700: '#0987A0';
-    --purple-800: '#44337A';
-    --pink-900: '#521B41';
+    --black: #000000;
+    --white: #ffffff;
+    --green-300: #A8FF35;
+    --green-400: #87D322;
+    --green-500: #8CC83A;
+    --gray-200: #F1F1F1;
+    --gray-300: #F5F5F5;
+    --gray-400: #ADADAD;
+    --gray-500: #8B8B8B;
+    --gray-700: #2B2B2B;
 
-    --font-type-1-name: 'Roboto';
+    --font-type-1-name: 'Effra';
     --font-type-1-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
         Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   }
@@ -38,8 +38,10 @@ export const GlobalStyles = createGlobalStyle`
   textarea,
   select,
   button {
+    color: var(--black);
     font-family: var(--font-type-1-name), var(--font-type-1-fallback);
     font-size: 1.6rem;
+    font-weight: 400;
   }
 
   button {

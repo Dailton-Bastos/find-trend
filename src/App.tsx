@@ -1,3 +1,3 @@
 export const App = () => {
-  return <h1>Findtrend</h1>;
+  return <h1>Minimize your tabs.</h1>;
 };
