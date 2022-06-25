@@ -1,3 +1,12 @@
+import { Header } from '~/components/Header';
+
 export const App = () => {
-  return <h1>Minimize your tabs.</h1>;
+  return (
+    <>
+      <Header />
+      <div style={{ minHeight: '200vh' }}>
+        <p>sssss</p>
+      </div>
+    </>
+  );
 };
