@@ -2,12 +2,18 @@ import React from 'react';
 
 import { Container } from '~/components/Container';
 import { Logo } from '~/components/Logo';
+import { useMediaQuery } from '~/hooks/useMediaQuery';
 
+import { AuthButtons } from './AuthButtons';
+import { ButtonMenu } from './ButtonMenu';
+import { Menu } from './Menu';
 import * as Styled from './styles';
 
 export const Header = () => {
   const [isHovering, setIsHovering] = React.useState(false);
   const [isSticky, setIsSticky] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const isMobile = useMediaQuery('(max-width: 1024px)');
 
   const handleMouseOver = React.useCallback(() => {
     setIsHovering(true);
@@ -37,38 +43,26 @@ export const Header = () => {
     <Styled.Wrapper
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
-      className={`${isHovering ? 'focused' : ''} ${isSticky ? 'sticky' : ''}`}
+      className={`${isHovering ? 'focused' : ''} ${
+        isSticky || isMenuOpen ? 'sticky' : ''
+      }`}
     >
       <Container>
         <Styled.Content>
-          <Logo isBlack={isHovering || isSticky} />
+          <Logo isBlack={isHovering || isSticky} isMobile={isMobile} />
 
-          <nav>
-            <ul>
-              <li>
-                <a href="#">About</a>
-              </li>
-              <li>
-                <a href="#">How it work</a>
-              </li>
-              <li>
-                <a href="#">Pricing</a>
-              </li>
-              <li>
-                <a href="#">Solution</a>
-              </li>
-              <li>
-                <a href="#">Features</a>
-              </li>
-            </ul>
-          </nav>
+          <Menu isMenuOpen={isMenuOpen} />
 
-          <Styled.Buttons>
-            <a href="#">Login</a>
-            <a href="#" className={isHovering || isSticky ? 'focused' : ''}>
-              Register
-            </a>
-          </Styled.Buttons>
+          {isMobile && (
+            <ButtonMenu
+              isOpen={isMenuOpen}
+              onClickButton={() => setIsMenuOpen((prev) => !prev)}
+            />
+          )}
+
+          {!isMobile && (
+            <AuthButtons isHovering={isHovering} isSticky={isSticky} />
+          )}
         </Styled.Content>
       </Container>
     </Styled.Wrapper>

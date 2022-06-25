@@ -12,6 +12,10 @@ export default {
       options: [true, false],
       control: { type: 'radio' },
     },
+    isMobile: {
+      options: [true, false],
+      control: { type: 'radio' },
+    },
   },
 } as ComponentMeta<typeof Logo>;
 
