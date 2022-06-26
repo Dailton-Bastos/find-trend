@@ -27,10 +27,12 @@ export const GlobalStyles = createGlobalStyle`
   html {
     font-size: 62.5%;
     scroll-behavior: smooth;
+    height: 100%;
   }
 
   body {
     -webkit-font-smoothing: antialiased;
+    height: 100%;
   }
 
   body,
@@ -51,5 +53,11 @@ export const GlobalStyles = createGlobalStyle`
   a {
     color: inherit;
     text-decoration: none;
+  }
+
+  [data-js='root'] {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 `;
