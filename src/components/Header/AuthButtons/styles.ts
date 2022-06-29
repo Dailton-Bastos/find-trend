@@ -18,6 +18,7 @@ export const Wrapper = styled.div`
       align-items: center;
       background: var(--white);
       border-radius: 4rem;
+      color: var(--black);
       display: flex;
       height: 4.2rem;
       justify-content: center;

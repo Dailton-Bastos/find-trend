@@ -8,12 +8,16 @@ export const Wrapper = styled.header`
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 999;
 
   &.focused,
   &.sticky {
-    background: var(--white);
     color: var(--black);
     transition: background 0.5s ease-in;
+
+    @media only screen and (min-width: 1025px) {
+      background: var(--white);
+    }
   }
 
   &.sticky {
