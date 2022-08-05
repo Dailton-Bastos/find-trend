@@ -1,0 +1,23 @@
+.swiper {
+  padding: 10px 0;
+}
+
+.swiper .swiper-wrapper .swiper-slide {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.swiper-button-prev {
+  left: -5px;
+}
+
+.swiper-button-next {
+  right: -5px;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  color: var(--gray-700);
+  font-size: 18px;
+}

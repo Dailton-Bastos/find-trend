@@ -13,6 +13,7 @@ export const GlobalStyles = createGlobalStyle`
     --green-300: #A8FF35;
     --green-400: #87D322;
     --green-500: #8CC83A;
+    --gray-100: #FaFaFa;
     --gray-200: #F1F1F1;
     --gray-300: #F5F5F5;
     --gray-400: #ADADAD;
