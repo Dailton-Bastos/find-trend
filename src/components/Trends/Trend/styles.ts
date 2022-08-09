@@ -5,9 +5,8 @@ export const Wrapper = styled.article`
   display: flex;
   gap: 20px;
   padding-top: 30px;
-  max-width: 940px;
   margin-bottom: 30px;
-  width: 100%;
+  width: 80%;
 
   img {
     max-width: 320px;

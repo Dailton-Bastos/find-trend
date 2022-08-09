@@ -1,32 +1,22 @@
-import React from 'react';
+import type { Article } from '~/@types/trend';
 
 import * as Styled from './styles';
 
-type TrendProps = {
-  urlToImage?: string;
-  subtitle?: string;
-  title: string;
-  url: string;
-  description: string;
-  publishedAt: string;
-  source: string;
-};
-
 export const Trend = ({
   urlToImage,
-  subtitle,
+  author,
   title,
   url,
   description,
   publishedAt,
   source,
-}: TrendProps) => {
+}: Article) => {
   return (
     <Styled.Wrapper>
       {urlToImage && <img src={urlToImage} alt={title} title={title} />}
 
       <Styled.Content>
-        {subtitle && <span>{subtitle}</span>}
+        {author && <span>{author}</span>}
 
         <h2>
           <a href={url} target="_blank" rel="noreferrer">
@@ -37,8 +27,7 @@ export const Trend = ({
         <p>{description}</p>
 
         <time>
-          {' '}
-          {publishedAt} - {source}
+          {publishedAt} - {source?.name}
         </time>
       </Styled.Content>
     </Styled.Wrapper>

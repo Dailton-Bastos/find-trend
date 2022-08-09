@@ -3,6 +3,7 @@ import React from 'react';
 import { Container } from '~/components/Container';
 import { Slider, Slide, SliderProps } from '~/components/Slider';
 import { useMediaQuery } from '~/hooks/useMediaQuery';
+import { useTrend } from '~/hooks/useTrend';
 
 import { Button } from './Button';
 import { platforms } from './Button/platforms';
@@ -35,6 +36,8 @@ export const Trends = () => {
     navigation: true,
     allowTouchMove: true,
   };
+
+  const { status, data } = useTrend(platformId);
 
   return (
     <Styled.Wrapper>
@@ -74,32 +77,26 @@ export const Trends = () => {
           )}
 
           <Styled.Posts>
-            <Trend
-              urlToImage="https://static.seekingalpha.com/assets/og_image_1200-29b2bfe1a595477db6826bd2126c63ac2091efb7ec76347a8e7f81ba17e3de6c.png"
-              subtitle="Dailton Bastos"
-              url="https://www.lanacion.com.ar/agencias/twitter-califica-la-contrademanda-de-musk-como-inexacta-e-insuficiente-legalmente-nid04082022/"
-              title="Beyond Meat, Inc. (BYND) CEO Ethan Brown on Q2 2022 Results - Earnings Call Transcript"
-              description="Beyond Meat, Inc. (NASDAQ:NASDAQ:BYND) Q2 2022 Earnings Conference Call August 4, 2022 5:00 PM ETCompany ParticipantsLubi Kutua - Vice President of Financial Planning & Analysis "
-              publishedAt="2022-08-05T01:41:09Z"
-              source="Seeking Alpha"
-            />
-            <Trend
-              subtitle="Dailton Bastos"
-              url="https://www.lanacion.com.ar/agencias/twitter-califica-la-contrademanda-de-musk-como-inexacta-e-insuficiente-legalmente-nid04082022/"
-              title="Beyond Meat, Inc. (BYND) CEO Ethan Brown on Q2 2022 Results - Earnings Call Transcript"
-              description="Beyond Meat, Inc. (NASDAQ:NASDAQ:BYND) Q2 2022 Earnings Conference Call August 4, 2022 5:00 PM ETCompany ParticipantsLubi Kutua - Vice President of Financial Planning & Analysis "
-              publishedAt="2022-08-05T01:41:09Z"
-              source="Seeking Alpha"
-            />
-            <Trend
-              urlToImage="https://www.independent.ie/business/world/e3e9a/41890781.ece/AUTOCROP/w1240h700/CITADEL%20GRIFFIN"
-              subtitle="Jef Feeley"
-              url="https://www.lanacion.com.ar/agencias/twitter-califica-la-contrademanda-de-musk-como-inexacta-e-insuficiente-legalmente-nid04082022/"
-              title="Solar Energy Market size in Ukraine to grow by 932.10 MW -- Driven by increasing developments in the implementation of renewable energy"
-              description="Ken Griffin, the billionaire founder of hedge fund Citadel, was added to a sweeping list of those Twitter has subpoenaed in its effort to force Elon Musk to complete his $44bn (€43bn) purchase of the social media company."
-              publishedAt="2022-08-05T01:41:09Z"
-              source="Independent.ie"
-            />
+            {status === 'loading' ? (
+              <p>Loading...</p>
+            ) : status === 'error' ? (
+              <p>Error</p>
+            ) : (
+              <>
+                {data?.map((trend) => (
+                  <Trend
+                    key={trend.id}
+                    urlToImage={trend.urlToImage}
+                    author={trend.author}
+                    url={trend.url}
+                    title={trend.title}
+                    description={trend.description}
+                    publishedAt={trend.publishedAt}
+                    source={trend.source}
+                  />
+                ))}
+              </>
+            )}
           </Styled.Posts>
         </Styled.Content>
       </Container>
