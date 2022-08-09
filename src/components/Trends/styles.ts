@@ -29,3 +29,12 @@ export const Slider = styled.div`
   white-space: nowrap;
   overflow-y: scroll;
 `;
+
+export const Posts = styled.div`
+  margin: 50px 0 30px;
+  padding: 0 15px;
+
+  @media only screen and (max-width: 1024px) {
+    margin: 30px 0 20px;
+  }
+`;
