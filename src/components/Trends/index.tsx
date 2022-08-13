@@ -10,10 +10,12 @@ import { Button } from './Button';
 import { platforms } from './Button/platforms';
 import * as Styled from './styles';
 import { Trend } from './Trend';
+import { ViewMore } from './ViewMore';
 
 export const Trends = () => {
   const [platformId, setPlatformId] = React.useState('facebook');
   const isMobile = useMediaQuery('(max-width: 1024px)');
+  const [page, setPage] = React.useState(1);
 
   const ref = React.useRef<HTMLDivElement>(null);
 
@@ -38,7 +40,7 @@ export const Trends = () => {
     allowTouchMove: true,
   };
 
-  const { status, data } = useTrend(platformId);
+  const { data, isLoading, isError, isFetching } = useTrend(platformId, page);
 
   return (
     <Styled.Wrapper>
@@ -78,9 +80,9 @@ export const Trends = () => {
           )}
 
           <Styled.Posts>
-            {status === 'loading' ? (
+            {isLoading ? (
               <Skeleton />
-            ) : status === 'error' ? (
+            ) : isError ? (
               <p>Error</p>
             ) : (
               <>
@@ -97,6 +99,13 @@ export const Trends = () => {
                   />
                 ))}
               </>
+            )}
+
+            {data && data?.length >= 1 && (
+              <ViewMore
+                isFetching={isFetching}
+                onClick={() => setPage((prev) => prev + 1)}
+              />
             )}
           </Styled.Posts>
         </Styled.Content>

@@ -17,4 +17,6 @@ export type Trends = {
   articles: Article[];
   status: string;
   totalResults: number;
+  code: string;
+  message: string;
 };
