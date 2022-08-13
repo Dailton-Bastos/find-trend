@@ -7,9 +7,18 @@ export const Wrapper = styled.article`
   padding-top: 30px;
   margin-bottom: 30px;
   width: 80%;
+  position: relative;
+
+  @media only screen and (max-width: 1024px) {
+    width: 100%;
+  }
 
   img {
     max-width: 320px;
+
+    @media only screen and (max-width: 1024px) {
+      max-width: 220px;
+    }
   }
 
   @media only screen and (max-width: 1024px) {
@@ -26,11 +35,16 @@ export const Content = styled.div`
 
   h2 {
     color: var(--gray-700);
-    font-size: 32px;
+    font-size: 3.2rem;
     font-weight: 700;
     line-height: 39px;
     text-align: left;
     margin: 10px 0;
+
+    @media only screen and (max-width: 1024px) {
+      font-size: 2.2rem;
+      line-height: 29px;
+    }
   }
 
   p {

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Container } from '~/components/Container';
+import { Skeleton } from '~/components/Skeleton';
 import { Slider, Slide, SliderProps } from '~/components/Slider';
 import { useMediaQuery } from '~/hooks/useMediaQuery';
 import { useTrend } from '~/hooks/useTrend';
@@ -78,7 +79,7 @@ export const Trends = () => {
 
           <Styled.Posts>
             {status === 'loading' ? (
-              <p>Loading...</p>
+              <Skeleton />
             ) : status === 'error' ? (
               <p>Error</p>
             ) : (

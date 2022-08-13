@@ -35,6 +35,7 @@ export const Posts = styled.div`
   padding: 0 15px;
 
   @media only screen and (max-width: 1024px) {
-    margin: 30px 0 20px;
+    margin: 10px 0 20px;
+    padding: 0;
   }
 `;
